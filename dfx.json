@@ -1,23 +1,37 @@
 {
   "canisters": {
-    "backend": {
-      "main": "backend/app.mo",
-      "type": "motoko",
-      "args": "--enhanced-orthogonal-persistence"
+    "UndeadHoard_backend": {
+      "main": "src/UndeadHoard_backend/main.mo",
+      "type": "motoko"
     },
-    "frontend": {
-      "dependencies": ["backend"],
-      "frontend": {
-        "entrypoint": "frontend/index.html"
+    "UndeadHoard_frontend": {
+      "dependencies": [
+        "UndeadHoard_backend"
+      ],
+      "source": [
+        "src/UndeadHoard_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "UndeadHoard_frontend"
+    },
+    "internet_identity": {
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "frontend": {},
+      "remote": {
+        "id": {
+          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+        }
       },
-      "source": ["frontend/dist"],
-      "type": "assets"
+      "type": "custom",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
     }
   },
   "output_env_file": ".env",
-  "defaults": {
-    "build": {
-      "packtool": "mops sources"
-    }
-  }
+  "version": 1
 }
