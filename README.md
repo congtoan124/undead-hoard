@@ -4,12 +4,6 @@
 
 ---
 
-## 🌍 Overview
-
-In the remains of a fallen world, survivors seek more than food — they seek **legendary artifacts of the undead**.
-
----
-
 ## 🔑 Features
 
 - 🧟‍♂️ **Collect Unique Zombie Treasures**
